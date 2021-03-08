@@ -182,6 +182,10 @@ def search_multi():
             genre_ids=response['results'][i]['genre_ids']
         except:
             genre_ids="N/A"
+        try:
+            media_type=response['results'][i]['media_type']
+        except:
+            media_type="N/A"
         if response['results'][i]['media_type']=="tv":
             try:
                 name=response['results'][i]['name']
@@ -198,7 +202,9 @@ def search_multi():
                             "first_air_date":first_air_date,
                             "vote_average":vote_average,
                             "vote_count":vote_count,
-                            "genre_ids":genre_ids})
+                            "genre_ids":genre_ids,
+                            "media_type":media_type
+                            })
         elif response['results'][i]['media_type']=="movie":
             try:
                 title=response['results'][i]['title']
@@ -215,7 +221,9 @@ def search_multi():
                             "release_date":release_date,
                             "vote_average":vote_average,
                             "vote_count":vote_count,
-                            "genre_ids":genre_ids})
+                            "genre_ids":genre_ids,
+                            "media_type":media_type
+                            })
     return {"results":results}
 
 @app.route('/movie')
