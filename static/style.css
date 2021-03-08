@@ -1,0 +1,173 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.f {
+  flex: 1;
+}
+.fw {
+  width: 100%;
+}
+.fh {
+  height: 100%;
+}
+.vw {
+  width: 100vw;
+}
+.vh {
+  height: 100vh;
+}
+
+
+
+.header {
+	padding: 0.5rem;
+}
+body {
+	background-color: black;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+}
+.text{
+  color: white;
+}
+.side_panel {
+	width: 20rem;
+	align-items: flex-end;
+	border-right: white 1px solid;
+	padding: 0.5rem;
+}
+.nav_button {
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+	justify-content: space-between;
+	width: 10rem;
+}
+.arrow {
+	width: 2rem;
+	border: solid white 0.5px;
+}
+.divider {
+	width: 50%;
+	border: solid white 0.5px;
+}
+.section {
+	margin-left: 10rem;
+	width: 40vw;
+	height: 40vh;
+	margin-bottom: 10rem;
+}
+.section_heading {
+	align-self: center;
+	margin: 1rem;
+}
+.name_container {
+	position: absolute;
+	margin-top: -3rem;
+	height: 3rem;
+	box-sizing: border-box;
+	width: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.5);
+}
+.slide_show {
+	width: inherit;
+	height: inherit;
+}
+.name {
+	color: white;
+}
+
+.home{
+  display: none;
+  overflow-y: auto;
+}
+.search {
+	display: flex;
+	overflow-y: auto;
+}
+.search_container {
+	width: 40vw;
+	height: 40vh;
+	margin-left: 15rem;
+	background-image: linear-gradient(red,black);
+	align-items: center;
+	justify-content: flex-start;
+}
+.search_header {
+	padding: 1rem;
+	font-size: 18px;
+	text-align: center;
+}
+.field {
+	margin-bottom: 1rem;
+	width: 20rem;
+}
+.label {
+	margin-right: 1rem;
+}
+.textinput {
+	width: 15rem;
+}
+.category_select {
+	width: 10rem;
+}
+.button {
+	background-color: black;
+	border: 0;
+	margin: 1rem;
+	width: 6rem;
+	padding: 0.5rem;
+}
+.showing_results {
+	margin: 1rem;
+}
+.result_container {
+	border-left: red solid 10px;
+	margin-left: 1rem;
+}
+.image_container {
+	height: 100%;
+	width: 40rem;
+}
+.result_content_container {
+	justify-content: space-evenly;
+	height: 100%;
+	margin-left: 2rem;
+}
+.result_header {
+	font-size: 20px;
+	font-weight: bolder;
+}
+.subtext {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+.year {
+	border-right: solid white 0.5px;
+}
+.rating {
+	color: red;
+}
+.show_more {
+	background-color: red;
+	color: white;
+	border-radius: 3px;
+	margin-left: 0;
+}
+.main {
+	box-sizing: border-box;
+	align-items: flex-start;
+	height: 100%;
+	width: 100%;
+	flex: unset;
+}
