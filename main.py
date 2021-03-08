@@ -457,4 +457,16 @@ def tv_reviews():
                         })
     return {"results":results}
 
+@app.route('/genre/movie/list')
+def genre_movie():
+    response=get(f'{SITE_NAME}genre/movie/list?{API_KEY}&language=en-US')
+    response=response.json()
+    return response
+
+@app.route('/genre/tv/list')
+def genre_tv():
+    response=get(f'{SITE_NAME}genre/tv/list?{API_KEY}&language=en-US')
+    response=response.json()
+    return response
+
 app.run(debug=True)
