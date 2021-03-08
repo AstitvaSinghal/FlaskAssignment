@@ -35,7 +35,6 @@ def trending():
 def airing_today():
     response=get(f'{SITE_NAME}tv/airing_today?{API_KEY}')
     response=response.json()
-    # return response
     results=[]
     for i in range(0,5):
         try:
@@ -58,7 +57,6 @@ def search_movie():
     search_query=request.args.get('search_query')
     response=get(f'{SITE_NAME}search/movie?{API_KEY}&query={search_query}&language=en-US&page=1&include_adult=false')
     response=response.json()
-    # return response
     results=[]
     for i in range(0,len(response['results'])):
         try:
@@ -102,5 +100,56 @@ def search_movie():
                         "vote_count":vote_count,
                         "genre_ids":genre_ids})
     return {"results":results}
+
+@app.route('/search_tv')
+def search_tv():
+    search_query=request.args.get('search_query')
+    print("check")
+    response=get(f'{SITE_NAME}search/tv?{API_KEY}&language=en-US&page=1&query={search_query}&include_adult=false')
+    response=response.json()
+    results=[]
+    for i in range(0,len(response['results'])):
+        try:
+            id=response['results'][i]['id']
+        except:
+            id="N/A"
+        try:
+            name=response['results'][i]['name']
+        except:
+            name="N/A"
+        try:
+            overview=response['results'][i]['overview']
+        except:
+            overview="N/A"
+        try:
+            poster_path=response['results'][i]['poster_path']
+        except:
+            poster_path="N/A"
+        try:
+            first_air_date=response['results'][i]['first_air_date']
+        except:
+            first_air_date="N/A"
+        try:
+            vote_average=response['results'][i]['vote_average']
+        except:
+            vote_average="N/A"
+        try:
+            vote_count=response['results'][i]['vote_count']
+        except:
+            vote_count="N/A"
+        try:
+            genre_ids=response['results'][i]['genre_ids']
+        except:
+            genre_ids="N/A"
+        results.append({"id":id,
+                        "name":name,
+                        "overview":overview,
+                        "poster_path":poster_path,
+                        "first_air_date":first_air_date,
+                        "vote_average":vote_average,
+                        "vote_count":vote_count,
+                        "genre_ids":genre_ids})
+    return {"results":results}
+
 
 app.run(debug=True)
