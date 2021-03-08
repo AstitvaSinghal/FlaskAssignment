@@ -275,5 +275,60 @@ def movie_details():
                     "genres":genres}
     return results
 
+@app.route('/movie/credits')
+def movie_credits():
+    movie_id=request.args.get('movie_id')
+    response=get(f'{SITE_NAME}movie/{movie_id}/credits?{API_KEY}&language=en-US')
+    response=response.json()
+    # return response
+    results=[]
+    for i in range(0,min(8,len(response['cast']))):
+        try:
+            name=response['cast'][i]['name']
+        except:
+            name="N/A"
+        try:
+            profile_path=response['cast'][i]['profile_path']
+        except:
+            profile_path="N/A"
+        try:
+            character=response['cast'][i]['character']
+        except:
+            character="N/A"
+        results.append({"name":name,
+                        "profile_path":profile_path,
+                        "character":character,
+                        })
+    return {"results":results}
+
+@app.route('/movie/reviews')
+def movie_reviews():
+    movie_id=request.args.get('movie_id')
+    response=get(f'{SITE_NAME}movie/{movie_id}/reviews?{API_KEY}&language=en-US')
+    response=response.json()
+    results=[]
+    for i in range(0,min(5,len(response['results']))):
+        try:
+            username=response['results'][i]["author_details"]['username']
+        except:
+            username="N/A"
+        try:
+            content=response['results'][i]['content']
+        except:
+            content="N/A"
+        try:
+            rating="N/A" if response['results'][i]["author_details"]['rating']==null else response['results'][i]["author_details"]['rating']
+        except:
+            rating="N/A"
+        try:
+            created_at=response['results'][i]['created_at']
+        except:
+            created_at="N/A"
+        results.append({"username":username,
+                        "content":content,
+                        "rating":rating,
+                        "created_at":created_at
+                        })
+    return {"results":results}
 
 app.run(debug=True)
