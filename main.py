@@ -331,4 +331,130 @@ def movie_reviews():
                         })
     return {"results":results}
 
+@app.route('/tv')
+def tv_details():
+    tv_show_id=request.args.get('tv_show_id')
+    response=get(f'{SITE_NAME}tv/{tv_show_id}?{API_KEY}&language=en-US')
+    response=response.json()
+    # return response
+    try:
+        backdrop_path=response['backdrop_path']
+    except:
+        backdrop_path="N/A"
+    try:
+        episode_run_time=response['episode_run_time']
+    except:
+        episode_run_time="N/A"
+    try:
+        first_air_date=response['first_air_date']
+    except:
+        first_air_date="N/A"
+    try:
+        genres=response['genres']
+    except:
+        genres="N/A"
+    try:
+        id=response['id']
+    except:
+        id="N/A"
+    try:
+        name=response['name']
+    except:
+        name="N/A"
+    try:
+        number_of_seasons=response['number_of_seasons']
+    except:
+        number_of_seasons="N/A"
+    try:
+        overview=response['overview']
+    except:
+        overview="N/A"
+    try:
+        poster_path=response['poster_path']
+    except:
+        poster_path="N/A"
+    try:
+        spoken_languages=response['spoken_languages']
+    except:
+        spoken_languages="N/A"
+    try:
+        vote_average=response['vote_average']
+    except:
+        vote_average="N/A"
+    try:
+        vote_count=response['vote_count']
+    except:
+        vote_count="N/A"
+    results={
+            "backdrop_path":backdrop_path,
+            "episode_run_time":episode_run_time,
+            "first_air_date":first_air_date,
+            "genres":genres,
+            "id":id,
+            "name":name,
+            "number_of_seasons":number_of_seasons,
+            "overview":overview,
+            "poster_path":poster_path,
+            "spoken_languages":spoken_languages,
+            "vote_average":vote_average,
+            "vote_count":vote_count,
+            }
+    return results
+
+@app.route('/tv/credits')
+def tv_credits():
+    tv_show_id=request.args.get('tv_show_id')
+    response=get(f'{SITE_NAME}tv/{tv_show_id}/credits?{API_KEY}&language=en-US')
+    response=response.json()
+    # return response
+    results=[]
+    for i in range(0,min(8,len(response['cast']))):
+        try:
+            name=response['cast'][i]['name']
+        except:
+            name="N/A"
+        try:
+            profile_path=response['cast'][i]['profile_path']
+        except:
+            profile_path="N/A"
+        try:
+            character=response['cast'][i]['character']
+        except:
+            character="N/A"
+        results.append({"name":name,
+                        "profile_path":profile_path,
+                        "character":character,
+                        })
+    return {"results":results}
+
+@app.route('/tv/reviews')
+def tv_reviews():
+    tv_show_id=request.args.get('tv_show_id')
+    response=get(f'{SITE_NAME}tv/{tv_show_id}/reviews?{API_KEY}&language=en-US')
+    response=response.json()
+    results=[]
+    for i in range(0,min(5,len(response['results']))):
+        try:
+            username=response['results'][i]["author_details"]['username']
+        except:
+            username="N/A"
+        try:
+            content=response['results'][i]['content']
+        except:
+            content="N/A"
+        try:
+            rating="N/A" if response['results'][i]["author_details"]['rating']==null else response['results'][i]["author_details"]['rating']
+        except:
+            rating="N/A"
+        try:
+            created_at=response['results'][i]['created_at']
+        except:
+            created_at="N/A"
+        results.append({"username":username,
+                        "content":content,
+                        "rating":rating,
+                        "created_at":created_at
+                        })
+    return {"results":results}
+
 app.run(debug=True)
