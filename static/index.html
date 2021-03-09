@@ -12,161 +12,540 @@
 
 <body>
     <div class="row fw header">
-        <div class="text" style="color: red;">THE MOVIE DB</div>
+        <div class="header_title">THE MOVIE DB</div>
     </div>
     <div class="row f main">
         <div class="column side_panel fh">
-            <div class="row nav_button" onclick="handleNavigation('home')">
-                <div class="text">Home</div>
-                <div class="arrow"></div>
+            <div class="row nav_button home_button" onclick="handleNavigation('home')">
+                <div class="text nav_label">Home</div>
+                <div class="text nav_label">&rarr;</div>
+
             </div>
             <div class="divider"></div>
-            <div class="row nav_button" onclick="handleNavigation('search')">
-                <div class="text">Search</div>
-                <div class="arrow"></div>
+            <div class="row nav_button search_button" onclick="handleNavigation('search')">
+                <div class="text nav_label">Search</div>
+                <div class="text nav_label">&rarr;</div>
             </div>
         </div>
         <div class="column f fh content_area home">
-            <div class="column section">
-                <div class="text section_heading">Trending Movies</div>
-                <div class="slide_show">
-                    <img class="poster fh fw" src="https://static.toiimg.com/photo/80300736.cms" />
-                    <div class="name_container">
-                        <div class="name">
-                            Space Sweepers (2021)
+
+            <div class="slideshow-container slideshow1">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade slide1">
+                    <div class="column section">
+                        <div class="text section_heading">Trending Movies</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw" src="https://static.toiimg.com/photo/80300736.cms" />
+                            <div class="name_container">
+                                <div class="name">
+                                    Space Sweepers (2021)
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="column section">
-                <div class="text section_heading">TV Shows On-Air Today</div>
-                <div class="slide_show">
-                    <img class="poster fh fw"
-                        src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wandavision-poster-1600668936.jpg" />
-                    <div class="name_container">
-                        <div class="name">
-                            WandaVision(2021)
+
+                <div class="mySlides fade slide1">
+                    <div class="column section">
+                        <div class="text section_heading">Trending Movies</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw"
+                                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wandavision-poster-1600668936.jpg" />
+                            <div class="name_container">
+                                <div class="name">
+                                    WandaVision(2021)
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- Next and previous buttons -->
+                <div class="slideshow_button_container">
+                    <a class="prev" onclick="plusSlides(-1,'1')">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1,'1')">&#10095;</a>
+                </div>
             </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div class="dot_container">
+                <span class="dot" onclick="currentSlide(1,'1')"></span>
+                <span class="dot" onclick="currentSlide(2,'1')"></span>
+                <span class="dot" onclick="currentSlide(3,'1')"></span>
+            </div>
+            <div class="slideshow-container slideshow2">
+
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade slide2">
+                    <div class="column section">
+                        <div class="text section_heading">TV Shows On-Air Today</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw" src="https://static.toiimg.com/photo/80300736.cms" />
+                            <div class="name_container">
+                                <div class="name">
+                                    Space Sweepers (2021)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mySlides fade slide2">
+                    <div class="column section">
+                        <div class="text section_heading">TV Shows On-Air Today</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw"
+                                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wandavision-poster-1600668936.jpg" />
+                            <div class="name_container">
+                                <div class="name">
+                                    WandaVision(2021)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Next and previous buttons -->
+                <div class="slideshow_button_container">
+                    <a class="prev" onclick="plusSlides(-1,'2')">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1,'2')">&#10095;</a>
+                </div>
+            </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div class="dot_container">
+                <span class="dot" onclick="currentSlide(1,'2')"></span>
+                <span class="dot" onclick="currentSlide(2,'2')"></span>
+                <span class="dot" onclick="currentSlide(3,'2')"></span>
+            </div>
+
+
         </div>
         <div class="column f fh content_area search">
-            <div class="column search_container">
-                <div class="text search_header">Search</div>
-                <div class="row field">
-                    <div class="text label">Keyword</div>
-                    <input class="textinput" type="text" />
+            <form>
+                <div class="column search_container">
+                    <div class="text search_header">Search</div>
+                    <div class="row field">
+                        <div class="text label">Keyword</div>
+                        <input class="textinput" type="text" id='search' />
+                    </div>
+                    <div class="row field">
+                        <div class="text label">Category</div>
+                        <select class="category_select" id='category'>
+                            <option class="option">Movie</option>
+                            <option class="option">TV</option>
+                            <option class="option">Movie and TV</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <button class="text button" type="button" onclick="handleSearch()">Search</button>
+                        <button class="text button" type="reset">Clear</button>
+                    </div>
                 </div>
-                <div class="row field">
-                    <div class="text label">Category</div>
-                    <select class="category_select">
-                        <option class="option">option</option>
-                    </select>
-                </div>
-                <div class="row">
-                    <button class="text button">Search</button>
-                    <button class="text button">Clear</button>
-                </div>
+            </form>
+            <div class="search_results">
+
             </div>
-            <div class="text showing_results">Showing results...</div>
-            <div class="row result_container">
-                <div class="image_container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
-                        class="poster fh fw" />
-                </div>
-                <div class="column result_content_container">
-                    <div class="text result_header">Avengers:Endgame</div>
-                    <div class="row">
-                        <div class="text subtext year">2019</div>
-                        <div class="text subtext">Adventure, Science Fiction, Action</div>
-                    </div>
-                    <div class="row">
-                        <div class="text subtext rating">4.4/5</div>
-                        <div class="text subtext">16922 votes</div>
-                    </div>
-                    <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                        has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                        software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                    <button class="button show_more">Show More</button>
-                </div>
+        </div>
+
+    </div>
+    <div class="popup">
+        <div class="poster_container">
+            <img class="banner" src="https://filmdaily.co/wp-content/uploads/2020/02/doctor-strange-2-lede.jpg" />
+        </div>
+        <div class="movie_title">Doctor Strange</div>
+        <div class="row field_container">
+            <div class="field_value field_first">2016</div>
+            <div class="field_value">Action, Adventure, Fantasy</div>
+        </div>
+        <div class="row field_container">
+            <div class="field_value rating">3.7/5</div>
+            <div class="field_value">16429 votes</div>
+        </div>
+        <div class="plot">
+            Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web
+            designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have
+            scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.
+        </div>
+        <div class="language">Spoken Languages: English</div>
+        <div class="cast_heading">Cast</div>
+        <div class="cast_list_container">
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
             </div>
-            <div class="row result_container">
-                <div class="image_container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
-                        class="poster fh fw" />
-                </div>
-                <div class="column result_content_container">
-                    <div class="text result_header">Avengers:Endgame</div>
-                    <div class="row">
-                        <div class="text subtext year">2019</div>
-                        <div class="text subtext">Adventure, Science Fiction, Action</div>
-                    </div>
-                    <div class="row">
-                        <div class="text subtext rating">4.4/5</div>
-                        <div class="text subtext">16922 votes</div>
-                    </div>
-                    <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                        has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                        software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                    <button class="button show_more">Show More</button>
-                </div>
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
             </div>
-            <div class="row result_container">
-                <div class="image_container">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg"
-                        class="poster fh fw" />
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
+            </div>
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
+            </div>
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
+            </div>
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
+            </div>
+            <div class="cast_container">
+                <img class="cast_image"
+                    src="https://pyxis.nymag.com/v1/imgs/629/683/f4df9d13d717e59f1dd5417d2f2ef415cb-16-cult-opener.rvertical.w330.jpg" />
+                <div class="cast_name">Benedict Cumberbatch</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">Stephen Strange/Doctor Strange</div>
+            </div>
+        </div>
+        <div class="review_list_container">
+            <div class="review_heading">Reviews</div>
+            <div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">asbiasbias</div> on 11/03/2016
                 </div>
-                <div class="column result_content_container">
-                    <div class="text result_header">Avengers:Endgame</div>
-                    <div class="row">
-                        <div class="text subtext year">2019</div>
-                        <div class="text subtext">Adventure, Science Fiction, Action</div>
-                    </div>
-                    <div class="row">
-                        <div class="text subtext rating">4.4/5</div>
-                        <div class="text subtext">16922 votes</div>
-                    </div>
-                    <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                        an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                        has survived not only five centuries, but also the leap into electronic typesetting,
-                        remaining essentially unchanged. It was popularised in the 1960s with the release of
-                        Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                        software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                    <button class="button show_more">Show More</button>
+                <div class="rating">3.5/5</div>
+                <div class="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+                    century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                    a type specimen book.</div>
+                <div class="review_divider"></div>
+            </div>
+            <div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">asbiasbias</div> on 11/03/2016
                 </div>
+                <div class="rating">3.5/5</div>
+                <div class="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+                    century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                    a type specimen book.</div>
+                <div class="review_divider"></div>
+            </div>
+            <div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">asbiasbias</div> on 11/03/2016
+                </div>
+                <div class="rating">3.5/5</div>
+                <div class="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+                    century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                    a type specimen book.</div>
+                <div class="review_divider"></div>
+            </div>
+            <div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">asbiasbias</div> on 11/03/2016
+                </div>
+                <div class="rating">3.5/5</div>
+                <div class="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+                    century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                    a type specimen book.</div>
+                <div class="review_divider"></div>
+            </div>
+            <div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">asbiasbias</div> on 11/03/2016
+                </div>
+                <div class="rating">3.5/5</div>
+                <div class="review">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th
+                    century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in
+                    a type specimen book.</div>
+                <div class="review_divider"></div>
             </div>
         </div>
     </div>
+    <div class="footer row">
+        <div class="footer_content">
+            <div class="text">Developed by Astitva Singhal</div>
+            <div class="text">Powered by TMDB</div>
+        </div>
+    </div>
     <script>
-        function fetchTrending() {
-            fetch('http://127.0.0.1:5000/trending')
-                .then(response => {
-                    response.json();
-                    document.getElementsByClassName
-                })
-                .then(data => console.log(data));
-
-        }
-        fetchTrending();
         function handleNavigation(e) {
             if (e == 'search') {
                 document.getElementsByClassName('home')[0].style.display = 'none';
                 document.getElementsByClassName('search')[0].style.display = 'flex';
+                document.getElementsByClassName('home_button')[0].style.color = 'white';
+                document.getElementsByClassName('search_button')[0].style.color = 'red';
             }
             if (e == 'home') {
                 document.getElementsByClassName('home')[0].style.display = 'flex';
                 document.getElementsByClassName('search')[0].style.display = 'none';
+                document.getElementsByClassName('home_button')[0].style.color = 'red';
+                document.getElementsByClassName('search_button')[0].style.color = 'white';
             }
+        }
+
+        function fetchTrending() {
+            fetch('http://127.0.0.1:5000/trending').then(response => response.json()).then(data => {
+                console.log(data);
+                let slides = []
+                for (let i = 0; i < data?.results?.length; i++) {
+                    let content = data.results[i]
+                    slides.push(`<div class="mySlides fade slide1">
+                    <div class="column section">
+                        <div class="text section_heading">Trending Movies</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw" src="https://image.tmdb.org/t/p/w500${content.backdrop_path}" />
+                            <div class="name_container">
+                                <div class="name">
+                                    ${content.title} ${content.release_date}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`)
+                }
+                slides.push(`<div class="slideshow_button_container">
+                    <a class="prev" onclick="plusSlides(-1,'1')">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1,'1')">&#10095;</a>
+                </div>`)
+                document.getElementsByClassName('slideshow1')[0].innerHTML = slides;
+                showSlides(index, '1');
+            })
+        }
+        function fetchAiringToday() {
+            fetch('http://127.0.0.1:5000/airing_today').then(response => response.json()).then(data => {
+                console.log(data);
+                let slides = []
+                for (let i = 0; i < data?.results?.length; i++) {
+                    let content = data.results[i]
+                    slides.push(`<div class="mySlides fade slide2">
+                    <div class="column section">
+                        <div class="text section_heading">Trending Movies</div>
+                        <div class="slide_show">
+                            <img class="poster fh fw" src="https://image.tmdb.org/t/p/w500${content.backdrop_path}" />
+                            <div class="name_container">
+                                <div class="name">
+                                    ${content.name} ${content.first_air_date}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`)
+                }
+                slides.push(`<div class="slideshow_button_container">
+                    <a class="prev" onclick="plusSlides(-1,'2')">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1,'2')">&#10095;</a>
+                </div>`)
+                document.getElementsByClassName('slideshow2')[0].innerHTML = slides;
+                showSlides(index, '2');
+            })
+        }
+        function handleSearch() {
+            let category = document.getElementById('category').value
+            console.log('category', category)
+            let url;
+
+            switch (category) {
+                case 'Movie':
+                    url = new URL('http://127.0.0.1:5000/search_movie')
+                    break;
+                case 'TV':
+                    url = new URL('http://127.0.0.1:5000/search_tv')
+                    break;
+                default:
+                    url = new URL('http://127.0.0.1:5000/search_multi')
+                    break;
+            }
+            let search_query = document.getElementById('search').value
+            let params = { search_query }
+            url.searchParams.append('search_query', search_query)
+            fetch(url).then(response => response.json()).then(data => {
+                console.log("search results", data)
+                let results = document.getElementsByClassName('search_results')[0]
+                if (!data.results.length) {
+                    results.innerHTML = '<div class="text fallback">No Results Found</div>'
+                } else {
+
+                    results.innerHTML = `<div class="text showing_results">Showing results...</div>`;
+                    for (let i = 0; i < data.results.length; i++) {
+                        let content = data.results[i]
+                        results.innerHTML += (`<div class="row result_container">
+                    <div class="image_container">
+                        <img src=${content.poster_path ? "https://image.tmdb.org/t/p/w185" + content.poster_path : "https://cinemaone.net/images/movie_placeholder.png"}
+                            class="poster fh fw" />
+                    </div>
+                    <div class="column result_content_container">
+                        <div class="text result_header">${category == 'Movie' || content.media_type == 'movie' ? content.title : content.name}</div>
+                        <div class="row">
+                            <div class="text subtext year">${category == 'Movie' || content.media_type == 'movie' ? content.release_date : content.first_air_date}</div>
+                            <div class="text subtext">Adventure, Science Fiction, Action</div>
+                        </div>
+                        <div class="row">
+                            <div class="text subtext rating">${content.vote_average / 2}/5</div>
+                            <div class="text subtext">${content.vote_count} votes</div>
+                        </div>
+                        <div class="text description">${content.overview}</div>
+                        <button class="button show_more" onclick="handleShowMore('${content.id}', '${content.overview.replace(/["']/g, "")}', '${content.media_type || category}')">Show More</button>
+                    </div>
+                </div>`)
+                    }
+                }
+                // document.getElementsByClassName('search')[0].innerHTML += results;
+            })
+        }
+        function handleShowMore(id, overview, media_type) {
+            debugger;
+            console.log("show id", id)
+            let category = document.getElementById('category').value
+            console.log('category', category)
+            let url, credits_url, reviews_url;
+            function getType() {
+                if (media_type == 'Movie' || media_type == 'movie') {
+                    return 'movie'
+                } else return 'tv'
+            }
+            switch (getType()) {
+                case 'movie':
+                    url = new URL('http://127.0.0.1:5000/movie')
+                    url.searchParams.append('movie_id', id)
+                    credits_url = new URL('http://127.0.0.1:5000/movie/credits')
+                    reviews_url = new URL('http://127.0.0.1:5000/movie/reviews')
+                    credits_url.searchParams.append('movie_id', id)
+                    reviews_url.searchParams.append('movie_id', id)
+                    break;
+                case 'tv':
+                default:
+                    url = new URL('http://127.0.0.1:5000/tv')
+                    url.searchParams.append('tv_show_id', id)
+                    credits_url = new URL('http://127.0.0.1:5000/tv/credits')
+                    reviews_url = new URL('http://127.0.0.1:5000/tv/reviews')
+                    credits_url.searchParams.append('tv_show_id', id)
+                    reviews_url.searchParams.append('tv_show_id', id)
+                    break;
+            }
+            let promises = []
+            promises.push(fetch(url).then(response => response.json()))
+            promises.push(fetch(credits_url).then(response => response.json()))
+            promises.push(fetch(reviews_url).then(response => response.json()))
+            Promise.all(promises).then(data => {
+                debugger;
+                let results = document.getElementsByClassName('popup')[0]
+                let details = data[0]
+                let casts = data[1].results
+                let reviews = data[2].results
+                results.innerHTML = null;
+                results.innerHTML += (`<div class="poster_container">
+            <img class="banner" src="https://image.tmdb.org/t/p/w780${details.backdrop_path}" />
+            <div class="cross" onclick="handleClosePopUp()"><p>&#x2716;</p></div>
+        </div>`)
+                results.innerHTML += (`<div class="row" style="margin-top: 1rem;"><div class="movie_title">${getType() == 'movie' ? details.title : details.name}</div><a href="https://www.themoviedb.org/${getType()}/${id}" target="_blank" rel="noopener noreferrer"><div class="info">i</div></a></div>`)
+                results.innerHTML += (`<div class="row field_container">
+            <div class="field_value field_first">${getType() == 'movie' ? details.release_date : details.first_air_date}</div>
+            <div class="field_value">Action, Adventure, Fantasy</div>
+        </div>`)
+                results.innerHTML += (`<div class="row field_container">
+            <div class="field_value rating">${details.vote_average / 2}/5</div>
+            <div class="field_value">${details.vote_count} votes</div>
+        </div>`)
+                results.innerHTML += (`<div class="plot">${overview}</div>`)
+                results.innerHTML += (`<div class="language">Spoken Languages: ${details.spoken_languages.map(item => item.name)?.join(', ')}</div>`)
+                results.innerHTML += (`<div class="cast_heading">Cast</div>`)
+                let castDom = document.createElement('div')
+                castDom.classList.add("cast_list_container")
+                for (let j = 0; j < casts.length; j++) {
+                    let cast = casts[j]
+                    castDom.innerHTML += (`<div class="cast_container">
+                <img class="cast_image"
+                    src="${cast.profile_path?'https://image.tmdb.org/t/p/w780'+cast.profile_path:'https://cinemaone.net/images/movie_placeholder.png'}" />
+                <div class="cast_name">${cast.name}</div>
+                <div class="char_name">AS</div>
+                <div class="char_name">${cast.character}/div>
+            </div>`)
+                }
+                results.appendChild(castDom)
+                let reviewList = document.createElement('div')
+                reviewList.classList.add('review_list_container')
+                reviewList.innerHTML += `<div class="review_heading">Reviews</div>`
+                for (let j = 0; j < reviews.length; j++) {
+                    let review = reviews[j]
+                    reviewList.innerHTML += (`<div class="review_container">
+                <div class="review_by">
+                    <div style="font-weight: bold;">${review.username} </div> on ${new Date(review.created_at).toDateString()}
+                </div>
+                <div class="rating">${review.rating != "N/A" ? (review.rating / 2) + '/5' : review.rating}</div>
+                <div class="review">${review.content}</div>
+                <div class="review_divider"></div>
+            </div>`)
+                }
+                results.appendChild(reviewList)
+
+                // document.getElementsByClassName('popup')[0].innerHTML = results.join()
+                document.getElementsByClassName('popup')[0].style.display = 'block'
+            })
+        }
+        function handleClosePopUp() {
+            document.getElementsByClassName('popup')[0].style.display = 'none'
+        }
+        fetchTrending()
+        fetchAiringToday()
+        var index = {
+            slideIndex1: 1,
+            slideIndex2: 1,
+        }
+
+        showSlides(index, '1');
+        showSlides(index, '2');
+
+        // Next/previous controls
+        function plusSlides(n, slide) {
+            showSlides(index['slideIndex' + slide] += n, slide);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n, slide) {
+            showSlides(index['slideIndex' + slide] = n, slide);
+        }
+
+        function showSlides(n, slide) {
+            var i;
+            var slides = document.getElementsByClassName('slide' + slide);
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { index['slideIndex' + slide] = 1 }
+            if (n < 1) { index['slideIndex' + slide] = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            if (slides[index['slideIndex' + slide] - 1])
+                slides[index['slideIndex' + slide] - 1].style.display = "flex";
+            if (dots[index['slideIndex' + slide] - 1])
+                dots[index['slideIndex' + slide] - 1].className += " active";
         }
     </script>
 </body>

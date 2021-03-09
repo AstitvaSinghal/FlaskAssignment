@@ -1,90 +1,48 @@
-<div class="column search_container">
-                    <div class="text search_header">Search</div>
-                    <div class="row field">
-                        <div class="text label">Keyword</div>
-                        <input class="textinput" type="text" />
+<div class="slideshow-container slideshow1">
+
+                    <!-- Full-width images with number and caption text -->
+                    <div class="mySlides fade slide1">
+                        <div class="column section">
+                            <div class="text section_heading">TV Shows On-Air Today</div>
+                            <div class="slide_show">
+                                <img class="poster fh fw" src="https://static.toiimg.com/photo/80300736.cms" />
+                                <div class="name_container">
+                                    <div class="name">
+                                        Space Sweepers (2021)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row field">
-                        <div class="text label">Category</div>
-                        <select class="category_select">
-                            <option class="option">option</option>
-                        </select>
+
+                    <div class="mySlides fade slide1">
+                        <div class="column section">
+                            <div class="text section_heading">TV Shows On-Air Today</div>
+                            <div class="slide_show">
+                                <img class="poster fh fw"
+                                    src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/wandavision-poster-1600668936.jpg" />
+                                <div class="name_container">
+                                    <div class="name">
+                                        WandaVision(2021)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="row">
-                        <button class="text button">Search</button>
-                        <button class="text button">Clear</button>
+
+
+
+                    <!-- Next and previous buttons -->
+                    <div class="slideshow_button_container">
+                        <a class="prev" onclick="plusSlides(-1,'1')">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1,'1')">&#10095;</a>
                     </div>
                 </div>
-                <div class="text showing_results">Showing results...</div>
-                <div class="row result_container">
-                    <div class="image_container">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" class="poster fh fw" />
-                    </div>
-                    <div class="column result_content_container">
-                        <div class="text result_header">Avengers:Endgame</div>
-                        <div class="row">
-                            <div class="text subtext year">2019</div>
-                            <div class="text subtext">Adventure, Science Fiction, Action</div>
-                        </div>
-                        <div class="row">
-                            <div class="text subtext rating">4.4/5</div>
-                            <div class="text subtext">16922 votes</div>
-                        </div>
-                        <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                            has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <button class="button show_more">Show More</button>
-                    </div>
-                </div>
-                <div class="row result_container">
-                    <div class="image_container">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" class="poster fh fw" />
-                    </div>
-                    <div class="column result_content_container">
-                        <div class="text result_header">Avengers:Endgame</div>
-                        <div class="row">
-                            <div class="text subtext year">2019</div>
-                            <div class="text subtext">Adventure, Science Fiction, Action</div>
-                        </div>
-                        <div class="row">
-                            <div class="text subtext rating">4.4/5</div>
-                            <div class="text subtext">16922 votes</div>
-                        </div>
-                        <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                            has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <button class="button show_more">Show More</button>
-                    </div>
-                </div>
-                <div class="row result_container">
-                    <div class="image_container">
-                        <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" class="poster fh fw" />
-                    </div>
-                    <div class="column result_content_container">
-                        <div class="text result_header">Avengers:Endgame</div>
-                        <div class="row">
-                            <div class="text subtext year">2019</div>
-                            <div class="text subtext">Adventure, Science Fiction, Action</div>
-                        </div>
-                        <div class="row">
-                            <div class="text subtext rating">4.4/5</div>
-                            <div class="text subtext">16922 votes</div>
-                        </div>
-                        <div class="text description">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when
-                            an unknown printer took a galley of type and scrambled it to make a type specimen book. It
-                            has survived not only five centuries, but also the leap into electronic typesetting,
-                            remaining essentially unchanged. It was popularised in the 1960s with the release of
-                            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
-                            software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-                        <button class="button show_more">Show More</button>
-                    </div>
-                </div>
+            <br>
+
+            <!-- The dots/circles -->
+            <div class="dot_container">
+                <span class="dot" onclick="currentSlide(1,'1')"></span>
+                <span class="dot" onclick="currentSlide(2,'1')"></span>
+                <span class="dot" onclick="currentSlide(3,'1')"></span>
+            </div>
